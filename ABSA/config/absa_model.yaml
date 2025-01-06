@@ -1,0 +1,33 @@
+aspect:
+    - character
+    - content
+    - scene
+    - sound
+labels:
+    - x
+    - o
+    - n
+    - p
+pretrained: vinai/phobert-base-v2
+use_lstm: True
+num_layers_lstm: 2
+word_embedding_dim: 512
+num_embeddings: 256
+batch_size: 32
+num_workers: 2
+num_epochs: 15
+
+train_file: dataset/train_processed.csv
+val_file: dataset/dev_processed.csv
+test_file: dataset/test_processed.csv
+
+freeze_embedder: False
+acd_warmup: 30
+acd_only: False
+acsc_only: False
+lr: 0.00005
+weight_decay: 0.00001
+acd_loss_weight: 1.0
+acsc_loss_weight: 1.0
+saved_model: log/model_absa.bin
+model_save_path: log/model_absa.bin
